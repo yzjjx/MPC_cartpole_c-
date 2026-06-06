@@ -14,8 +14,10 @@
   scr/MPC_test.cpp:
 * test：测试文件夹  
   test/xml_open.cpp:用C++来打开mujoco模型
+* from_matlab:表示来自MATLAB的文件
 
 ## 运行结果
+### 1、常规MPC运行结果
 scr/MPC_test.cpp:该代码运行结果与MATLAB版本的MPC_test运行结果一致
 MATLAB运行结果:
 
@@ -28,17 +30,38 @@ MATLAB运行结果:
 <div align="center">
     <img src="fig/MATLAB_MPC_test2.jpg">
     <br>
-    图1：MATLAB代码运行结果2
+    图2：MATLAB代码运行结果2
 </div>
 
 <div align="center">
     <img src="fig/C++_MPC_test.png">
     <br>
-    图2：C++代码运行结果
+    图3：C++代码运行结果
 </div>
 
 <div align="center">
     <img src="fig/C++_MPC_test2.jpg">
     <br>
-    图2：C++代码运行结果2
+    图4：C++代码运行结果2
 </div>
+
+### 2、非线性MPC运行结果
+scr/NMPC_C_and_MATLAB.cpp：该代码运行结果与MATLAB版本的Cartpole_MPC运行结果一致，在初始关节角为30度时，运行结果如下：
+MATLAB运行结果：
+
+<div align="center">
+    <img src="fig/MATLAB_NMPC.jpg">
+    <br>
+    图5：MATLAB代码运行结果
+</div>
+
+<div align="center">
+    <img src="fig/C++_NMPC.png">
+    <br>
+    图6：C++    代码运行结果
+</div>
+
+### 3、非线性MPC：mujoco环境部署
+使用`pybind11`建立python到C++之间的桥梁，使用这个工具将C++代码编译为python的动态库，`pybind1`的简单使用可以查看博客：https://www.cnblogs.com/smartljy/p/18608727  
+首先将C++代码重构为控制器的类(class)，重构的文件为scr/CartpoleMPC.cpp
+

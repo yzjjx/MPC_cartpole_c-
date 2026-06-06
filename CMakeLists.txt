@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # 1. 寻找 Eigen3 库 
 find_package(Eigen3 REQUIRED)
+find_package(pybind11 REQUIRED)
 
 find_library(QPOASES_LIB 
     NAMES qpOASES 
@@ -18,12 +19,21 @@ include_directories(
     ${EIGEN3_INCLUDE_DIR}
 )
 
-# 4. 编译主程序 (生成的可执行文件叫 MPC_test1)
-add_executable(MPC_test1 
-    scr/MPC_test.cpp
-    scr/MPC_Matrices.cpp
+# 生成 Python 模块
+pybind11_add_module(MPC_test1 
+    scr/bindcode.cpp
+    scr/CartpoleMPC.cpp
+    scr/MPC_Matrices.cpp 
     scr/Prediction.cpp
 )
+
+# # 4. 编译主程序 (生成的可执行文件叫 MPC_test1)
+# add_executable(MPC_test1 
+#     # scr/MPC_test.cpp
+#     scr/NMPC_C_and_MATLAB.cpp
+#     scr/MPC_Matrices.cpp
+#     scr/Prediction.cpp
+# )
 
 # 5. 链接第三方库到主程序
 # 语法：target_link_libraries(程序名 库1 库2 ...)

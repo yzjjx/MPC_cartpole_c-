@@ -6,7 +6,8 @@
         "${workspaceFolder}/**",
         "/usr/include",
         "/home/yyy/cpp_pac/mujoco/include",
-        "/home/yyy/cpp_pac/mujoco/simulate"
+        "/home/yyy/cpp_pac/mujoco/simulate",
+        "/usr/include/pybind11"
     ],
         "defines": [],
         "compilerPath": "/usr/bin/g++",
