@@ -3,10 +3,11 @@ project(MPCCartpoleSim LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # 1. 寻找 Eigen3 库 
 find_package(Eigen3 REQUIRED)
-find_package(pybind11 REQUIRED)
+find_package(pybind11 CONFIG REQUIRED)
 
 find_library(QPOASES_LIB 
     NAMES qpOASES 

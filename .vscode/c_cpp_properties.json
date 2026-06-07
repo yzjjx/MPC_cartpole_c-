@@ -6,9 +6,9 @@
         "${workspaceFolder}/**",
         "/usr/include",
         "/home/yyy/cpp_pac/mujoco/include",
-        "/home/yyy/cpp_pac/mujoco/simulate",
-        "/usr/include/pybind11"
+        "/home/yyy/cpp_pac/mujoco/simulate"
     ],
+        "compileCommands": "${workspaceFolder}/build/compile_commands.json",
         "defines": [],
         "compilerPath": "/usr/bin/g++",
         "cStandard": "c17",
