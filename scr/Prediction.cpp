@@ -11,11 +11,11 @@ std::vector<qpOASES::real_t> eigen2QpArray(const Eigen::MatrixBase<Derived>& mat
     vec.reserve(mat.size());
 
     // qpOASES使用连续1的行优先的数据
-    for(int i=0;i<mat.rows();i++)
+    for(int j = 0; j < mat.rows(); j++)
     {
-        for(int j=0;j<mat.cols();j++)
+        for(int i = 0; i < mat.cols(); i++)
         {
-            vec.push_back(static_cast<qpOASES::real_t>(mat(i,j)));
+            vec.push_back(static_cast<qpOASES::real_t>(mat(j,i)));
         }
     }
     return vec;
@@ -33,12 +33,13 @@ Eigen::VectorXd Prediction(
     // U_k的数量为N*p
     int nV = N*p;
     // 构造二次规划数据
-    Eigen::MatrixXd H_qp = 2.0*H;
-    Eigen::MatrixXd g_qp = 2.0*(E.transpose()*x_k);
+    Eigen::MatrixXd H_qp = H + H.transpose();
+    H_qp += 1e-4 * Eigen::MatrixXd::Identity(nV, nV);
+    Eigen::VectorXd g_qp = 2.0 * (E.transpose() * x_k);
 
     // 无约束求解
-    Eigen::VectorXd lb = Eigen::VectorXd::Constant(nV,-1e10);
-    Eigen::VectorXd ub = Eigen::VectorXd::Constant(nV, 1e10);
+    Eigen::VectorXd lb = Eigen::VectorXd::Constant(nV,-50);
+    Eigen::VectorXd ub = Eigen::VectorXd::Constant(nV, 50);
 
     // 转换为qpOASES使用的格式
     std::vector<qpOASES::real_t> H_arr = eigen2QpArray(H_qp);

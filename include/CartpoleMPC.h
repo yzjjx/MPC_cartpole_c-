@@ -13,6 +13,7 @@ private:
     int n, p, N;
     Eigen::Matrix4d Q, F;
     Eigen::MatrixXd R;
+    double last_u;
 
 public:
     CartpoleMPC(); // 构造函数声明
