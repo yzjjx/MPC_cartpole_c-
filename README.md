@@ -118,8 +118,11 @@ bindcode文件里面，文件名字(MPC_test1)必须和`CMakeLists.txt`的文件
 #### 3.2 输入输出测试:mujoco_io.py运行结果
 输入展示:
 
-<video src="fig/test_io.mp4" controls width="100%"></video>
-<p align="center">图10：mujoco_io.py运行结果</p>
+<div align="center">
+    <img src="finally_test/test_io.gif">
+    <br>
+    图10：mujoco_io.py运行结果
+</div>
 
 输入获取如下图:
 
@@ -191,16 +194,24 @@ Bc_test = B_func(x_test,u_test)
 
 # 最终效果
 
-<video src="finally_test/30_test.mp4" controls width="100%"></video>
-<p align="center">视频1:30度初始扰动运行效果</p>
+<div align="center">
+    <img src="finally_test/30_test.gif">
+    <br>
+    图16：30度初始扰动输出曲线
+</div>
 
 
-<video src="finally_test/45_test.mp4" controls width="100%"></video>
-<p align="center">视频2:45度初始扰动运行效果</p>
+<div align="center">
+    <img src="finally_test/45_test.gif">
+    <br>
+    图17：45度初始扰动输出曲线
+</div>
 
-
-<video src="finally_test/70_test.mp4" controls width="100%"></video>
-<p align="center">视频3:70度初始扰动运行效果</p>
+<div align="center">
+    <img src="finally_test/70_test.gif">
+    <br>
+    图18：70度初始扰动输出曲线
+</div>
 
 可以看到，哪怕最后初始扰动到了70度非线性MPC依然能拉回原点，这点比根据**零点进行泰勒展开**的MPC更强，关于零点进行泰勒展开的相关代码可以查看我的仓库: https://github.com/yzjjx/MPC-python-with-mujoco-test ，下面给出70度测试的输入与输出曲线:
 
