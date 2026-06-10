@@ -195,20 +195,20 @@ Bc_test = B_func(x_test,u_test)
 # 最终效果
 
 <div align="center">
-    <img src="finally_test/30_test.gif">
+    <img src="finally_test/30_test_2.gif">
     <br>
     图16：30度初始扰动输出曲线
 </div>
 
 
 <div align="center">
-    <img src="finally_test/45_test.gif">
+    <img src="finally_test/45_test_2.gif">
     <br>
     图17：45度初始扰动输出曲线
 </div>
 
 <div align="center">
-    <img src="finally_test/70_test.gif">
+    <img src="finally_test/70_test_2.gif">
     <br>
     图18：70度初始扰动输出曲线
 </div>
